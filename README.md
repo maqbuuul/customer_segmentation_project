@@ -32,10 +32,10 @@ To segment customers into meaningful groups and answer key business questions:
 
 
 ### **Methodology**
-#### **1. Data Inpection**
-**Code Snippet: Data Inspectinon with Regex**
+#### **1. Data Inspection**
+**Code Snippet: Data Inspection with Regex**
 ```python
-#Filter for NA in Customer ID
+#Filter for NA in Cthe ustomer ID
 df[df["Customer ID"].isna()].head()
 ```
 
@@ -65,7 +65,7 @@ df[df['StockCode'].str.match("^\\d{5}$") == False]
 
 **Code Snippet: Data cleaning**
 ```python
-# Removing in correct invoices
+# Removing incorrect invoices
 cleaned_df['Invoice'] = cleaned_df['Invoice'].astype('str')
 mask = (
     cleaned_df['Invoice'].str.match("^\\d{6}$") == True
@@ -179,13 +179,19 @@ non_outliers_df
 
 ### **Visualizations**
 1. **Elbow Method Plot:** Shows the optimal number of clusters at **k = 4**. 
-
+![](images/image-5.png)
 2. **Silhouette Scores Plot:** Highlights clustering quality and separation. 
+![](images/image-6.png)
 
-3. **Violin Plots:** Illustrate the distribution of recency, frequency, and monetary values within each cluster. 
+3. **Violin Plots:** Illustrate the recency, frequency, and monetary values distribution within each cluster.
+ - Clusters with Outliers 
+![](images/image-8.png)
 
-4. **Cluster Heatmap:** Provides an at-a-glance view of customer segmentation metrics.
-![](https://github.com/awcaliyare/online_retail_II_data_clustering/blob/main/images/image-10.png?raw=true)
+- Clusters without Outliers 
+![](images/image-9.png)
+
+4. **Customers Cluster Profile:** Provides Cluster Distribution with Average Feature Values
+![](images/image-10.png)
 
 ### **Key Insights**
 1. **Largest Clusters:**
@@ -231,7 +237,7 @@ non_outliers_df
 This analysis provides a roadmap for targeted marketing by segmenting customers into actionable groups. The results help businesses allocate resources effectively to maximize retention, reactivation, and growth opportunities.  
 - **High-value clusters (DELIGHT & UPSELL)** drive significant revenue and require loyalty programs to sustain engagement.  
 - **Inactive clusters (REWARD & RE-ENGAGE)** represent untapped opportunities that can be reactivated with strategic campaigns.  
-- **Growth clusters (NURTURE & RETAIN)** offer potential for increased spending with the right incentives.   
+- **Growth clusters (NURTURE & RETAIN)** offer the potential for increased spending with the right incentives.   
 
 ### **Key Takeaways**
 1. **Retention Opportunities:** Prioritize high-value customers with VIP perks and tailored offers.  
@@ -240,5 +246,4 @@ This analysis provides a roadmap for targeted marketing by segmenting customers 
 4. **Upselling Opportunities:** Unlock untapped revenue from low-frequency but moderate-spending customers.  
 
 #### **Explore the Full Analysis**
-- **📂 Full Jupyter Notebook:** [Link Here](#)  
-- **📊 Interactive Visualizations:** [Link Here](#)  
+- **📂 Full Jupyter Notebook:** [full_online_retail_cluster.ipynb](#)
